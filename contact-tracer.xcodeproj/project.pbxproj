@@ -3,19 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BED189612E4DB13F40F6886 /* Pods_contact_tracer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E05C7B0126EF4A6474C6FA /* Pods_contact_tracer.framework */; };
+		27340BD724557B3C00E31B87 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27340BD624557B3B00E31B87 /* GoogleService-Info.plist */; };
 		275CD81C2455656C00E11C37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275CD81B2455656C00E11C37 /* AppDelegate.swift */; };
 		275CD81E2455656C00E11C37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275CD81D2455656C00E11C37 /* SceneDelegate.swift */; };
 		275CD8202455656C00E11C37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275CD81F2455656C00E11C37 /* ViewController.swift */; };
 		275CD8232455656C00E11C37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275CD8212455656C00E11C37 /* Main.storyboard */; };
 		275CD8252455656F00E11C37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 275CD8242455656F00E11C37 /* Assets.xcassets */; };
 		275CD8282455656F00E11C37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275CD8262455656F00E11C37 /* LaunchScreen.storyboard */; };
+		275CD8302455658A00E11C37 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275CD82F2455658A00E11C37 /* SignUpViewController.swift */; };
+		275CD832245565A500E11C37 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275CD831245565A500E11C37 /* LoginViewController.swift */; };
+		275CD834245565BA00E11C37 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275CD833245565BA00E11C37 /* HomeViewController.swift */; };
+		275CD8392455776B00E11C37 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275CD8382455776B00E11C37 /* Utilities.swift */; };
+		27ADDBA82456CC560001F828 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ADDBA72456CC560001F828 /* Contact.swift */; };
+		27ADDBAA2456D5E50001F828 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ADDBA92456D5E50001F828 /* DataManager.swift */; };
+		27D3B77324558A95003E4CE0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D3B77224558A95003E4CE0 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27340BD624557B3B00E31B87 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		275CD8182455656C00E11C37 /* contact-tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "contact-tracer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		275CD81B2455656C00E11C37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		275CD81D2455656C00E11C37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +34,16 @@
 		275CD8242455656F00E11C37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		275CD8272455656F00E11C37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		275CD8292455656F00E11C37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		275CD82F2455658A00E11C37 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		275CD831245565A500E11C37 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		275CD833245565BA00E11C37 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		275CD8382455776B00E11C37 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		27ADDBA72456CC560001F828 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		27ADDBA92456D5E50001F828 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		27D3B77224558A95003E4CE0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A1EE9D91A247982E34226BA5 /* Pods-contact-tracer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-contact-tracer.debug.xcconfig"; path = "Target Support Files/Pods-contact-tracer/Pods-contact-tracer.debug.xcconfig"; sourceTree = "<group>"; };
+		D2E05C7B0126EF4A6474C6FA /* Pods_contact_tracer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_contact_tracer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBC803310576B85C6A47B716 /* Pods-contact-tracer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-contact-tracer.release.xcconfig"; path = "Target Support Files/Pods-contact-tracer/Pods-contact-tracer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BED189612E4DB13F40F6886 /* Pods_contact_tracer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +63,8 @@
 			children = (
 				275CD81A2455656C00E11C37 /* contact-tracer */,
 				275CD8192455656C00E11C37 /* Products */,
+				9FFFEDBD088516C4EB9039D5 /* Pods */,
+				EAB69AAD4A41F3C5BB6B9B98 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +79,56 @@
 		275CD81A2455656C00E11C37 /* contact-tracer */ = {
 			isa = PBXGroup;
 			children = (
+				275CD83A2455777C00E11C37 /* Helpers */,
+				275CD835245565D500E11C37 /* View Controllers */,
 				275CD81B2455656C00E11C37 /* AppDelegate.swift */,
+				27ADDBA72456CC560001F828 /* Contact.swift */,
+				27ADDBA92456D5E50001F828 /* DataManager.swift */,
 				275CD81D2455656C00E11C37 /* SceneDelegate.swift */,
-				275CD81F2455656C00E11C37 /* ViewController.swift */,
 				275CD8212455656C00E11C37 /* Main.storyboard */,
 				275CD8242455656F00E11C37 /* Assets.xcassets */,
 				275CD8262455656F00E11C37 /* LaunchScreen.storyboard */,
+				27340BD624557B3B00E31B87 /* GoogleService-Info.plist */,
 				275CD8292455656F00E11C37 /* Info.plist */,
 			);
 			path = "contact-tracer";
+			sourceTree = "<group>";
+		};
+		275CD835245565D500E11C37 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				275CD82F2455658A00E11C37 /* SignUpViewController.swift */,
+				275CD831245565A500E11C37 /* LoginViewController.swift */,
+				275CD833245565BA00E11C37 /* HomeViewController.swift */,
+				275CD81F2455656C00E11C37 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		275CD83A2455777C00E11C37 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				27D3B77224558A95003E4CE0 /* Constants.swift */,
+				275CD8382455776B00E11C37 /* Utilities.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9FFFEDBD088516C4EB9039D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1EE9D91A247982E34226BA5 /* Pods-contact-tracer.debug.xcconfig */,
+				FBC803310576B85C6A47B716 /* Pods-contact-tracer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EAB69AAD4A41F3C5BB6B9B98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2E05C7B0126EF4A6474C6FA /* Pods_contact_tracer.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 275CD82C2455656F00E11C37 /* Build configuration list for PBXNativeTarget "contact-tracer" */;
 			buildPhases = (
+				188F6A9314A791C1A8E3B6A0 /* [CP] Check Pods Manifest.lock */,
 				275CD8142455656C00E11C37 /* Sources */,
 				275CD8152455656C00E11C37 /* Frameworks */,
 				275CD8162455656C00E11C37 /* Resources */,
+				4FDECF3E0C54379FBBF86FAF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				275CD8282455656F00E11C37 /* LaunchScreen.storyboard in Resources */,
+				27340BD724557B3C00E31B87 /* GoogleService-Info.plist in Resources */,
 				275CD8252455656F00E11C37 /* Assets.xcassets in Resources */,
 				275CD8232455656C00E11C37 /* Main.storyboard in Resources */,
 			);
@@ -133,14 +200,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		188F6A9314A791C1A8E3B6A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-contact-tracer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FDECF3E0C54379FBBF86FAF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-contact-tracer/Pods-contact-tracer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-contact-tracer/Pods-contact-tracer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-contact-tracer/Pods-contact-tracer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		275CD8142455656C00E11C37 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27ADDBA82456CC560001F828 /* Contact.swift in Sources */,
+				27ADDBAA2456D5E50001F828 /* DataManager.swift in Sources */,
 				275CD8202455656C00E11C37 /* ViewController.swift in Sources */,
 				275CD81C2455656C00E11C37 /* AppDelegate.swift in Sources */,
+				275CD8302455658A00E11C37 /* SignUpViewController.swift in Sources */,
+				275CD832245565A500E11C37 /* LoginViewController.swift in Sources */,
 				275CD81E2455656C00E11C37 /* SceneDelegate.swift in Sources */,
+				275CD8392455776B00E11C37 /* Utilities.swift in Sources */,
+				275CD834245565BA00E11C37 /* HomeViewController.swift in Sources */,
+				27D3B77324558A95003E4CE0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +398,7 @@
 		};
 		275CD82D2455656F00E11C37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1EE9D91A247982E34226BA5 /* Pods-contact-tracer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +417,7 @@
 		};
 		275CD82E2455656F00E11C37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBC803310576B85C6A47B716 /* Pods-contact-tracer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
