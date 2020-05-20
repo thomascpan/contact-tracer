@@ -18,6 +18,8 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     
+    @IBOutlet weak var phoneTextField: UITextField!
+    
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var signUpButton: UIButton!
@@ -29,6 +31,16 @@ class SignUpViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         setUpElements()
+        
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        emailTextField.delegate = self
+        phoneTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        phoneTextField.resignFirstResponder()
     }
     
     func setUpElements() {
@@ -37,11 +49,12 @@ class SignUpViewController: UIViewController {
         errorLabel.alpha = 0
         
         // Style the elements
-        Utilities.styleTextField(firstNameTextField)
-        Utilities.styleTextField(lastNameTextField)
-        Utilities.styleTextField(emailTextField)
-        Utilities.styleTextField(passwordTextField)
-        Utilities.styleFilledButton(signUpButton)
+        Utilities.styleTextField(self.traitCollection, firstNameTextField)
+        Utilities.styleTextField(self.traitCollection, lastNameTextField)
+        Utilities.styleTextField(self.traitCollection, emailTextField)
+        Utilities.styleTextField(self.traitCollection, phoneTextField)
+        Utilities.styleTextField(self.traitCollection, passwordTextField)
+        Utilities.styleFilledButton(self.traitCollection, signUpButton)
     }
     
     // Check the fields and validate that the data is correct. If everything is correct, this method returns nil. Otherwise, it returns the error message
@@ -84,6 +97,7 @@ class SignUpViewController: UIViewController {
             let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let phone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
             // Create the user
@@ -100,7 +114,7 @@ class SignUpViewController: UIViewController {
                     // User was created successfully, now store the first name and last name
                     let db = Firestore.firestore()
                     
-                    db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid": result!.user.uid ]) { (error) in
+                    db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "phone": phone, "uid": result!.user.uid, "sync": false, "infected": false]) { (error) in
                         
                         if error != nil {
                             // Show error message
@@ -108,6 +122,8 @@ class SignUpViewController: UIViewController {
                         }
                     }
                     
+                    self.initUserDefaults()
+                    Utilities.setSession(result!.user.uid)
                     // Transition to the home screen
                     self.transitionToHome()
                 }
@@ -124,13 +140,23 @@ class SignUpViewController: UIViewController {
         errorLabel.text = message
         errorLabel.alpha = 1
     }
-    
+
     func transitionToHome() {
+        let contactTableViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.contactTableViewController) as? ContactTableViewController
         
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
-        
-        view.window?.rootViewController = homeViewController
+        view.window?.rootViewController = contactTableViewController
         view.window?.makeKeyAndVisible()
         
+    }
+    
+    func initUserDefaults() {
+        UserDefaults.standard.set(false, forKey: "sync")
+    }
+}
+
+extension SignUpViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

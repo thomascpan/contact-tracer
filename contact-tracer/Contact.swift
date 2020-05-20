@@ -9,8 +9,15 @@
 import Foundation
 
 struct Contact: Codable {
-    private var uid:String
-    private var datetime:Date
+    var uid:String
+    var contactUid:String
+    var datetime:Date
+    
+    var formattedDatetime:String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy hh:mm:ss"
+        return formatter.string(from: datetime)
+    }
     
     func log(with fileName:String) {
         DataManager.append(self, with: fileName)
@@ -24,8 +31,9 @@ struct Contact: Codable {
         DataManager.delete(uid)
     }
     
-    init(uid: String) {
+    init(uid: String, contactUid: String) {
         self.uid = uid
+        self.contactUid = contactUid
         self.datetime = Date()
     }
 }

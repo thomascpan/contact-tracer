@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 public class DataManager {
     // Append
@@ -15,26 +16,16 @@ public class DataManager {
         
         let encoder = JSONEncoder()
         
-        do {
-            let data = try encoder.encode(object)
-            if FileManager.default.fileExists(atPath: url.path) {
-                if let fileUpdater = try? FileHandle(forUpdating: url) {
-                    fileUpdater.seekToEndOfFile()
-                    fileUpdater.write(data)
-                    fileUpdater.write("\n".data(using: .utf8)!)
-                    fileUpdater.closeFile()
-                }
-            } else {
-                FileManager.default.createFile(atPath: url.path, contents: data, attributes: nil)
-                if let fileUpdater = try? FileHandle(forUpdating: url) {
-                    fileUpdater.seekToEndOfFile()
-                    fileUpdater.write("\n".data(using: .utf8)!)
-                    fileUpdater.closeFile()
-                }
-            }
-
-        } catch{
-            fatalError(error.localizedDescription)
+        appendHelper(atPath: url, withEncoder: encoder, object)
+    }
+    
+    static func append <T:Encodable> (_ objects:[T], with fileName:String) {
+        let url = getDocumentDirectory().appendingPathComponent(fileName, isDirectory: false)
+        
+        let encoder = JSONEncoder()
+        
+        for object in objects {
+            appendHelper(atPath: url, withEncoder: encoder, object)
         }
     }
     
@@ -43,26 +34,24 @@ public class DataManager {
     static func load <T:Decodable> (_ fileName:String, with type:T.Type, lines:Int, offest:Int) -> [T] {
         let url = getDocumentDirectory().appendingPathComponent(fileName, isDirectory: false)
         
-        if !FileManager.default.fileExists(atPath: url.path) {
-            fatalError("File not found at path \(url.path)")
-        }
-        
         var modelObjects = [T]()
         
-        if let str = try? String(contentsOf: url, encoding: .utf8) {
-            let strs = str.components(separatedBy: .newlines)
-            for s in strs {
-                if !s.isEmpty {
-                    do {
-                        let model = try JSONDecoder().decode(type, from: s.data(using: .utf8)!)
-                        modelObjects.append(model)
-                    } catch{
-                        fatalError(error.localizedDescription)
+        if FileManager.default.fileExists(atPath: url.path) {
+            if let str = try? String(contentsOf: url, encoding: .utf8) {
+                let strs = str.components(separatedBy: .newlines)
+                for s in strs {
+                    if !s.isEmpty {
+                        do {
+                            let model = try JSONDecoder().decode(type, from: s.data(using: .utf8)!)
+                            modelObjects.append(model)
+                        } catch{
+                            fatalError(error.localizedDescription)
+                        }
                     }
                 }
+            } else{
+                fatalError("Data unavailable at path \(url.path)")
             }
-        } else{
-            fatalError("Data unavailable at path \(url.path)")
         }
         
         return modelObjects
@@ -168,4 +157,52 @@ public class DataManager {
         }
     }
     
+    private static func appendHelper <T:Encodable> (atPath url: URL, withEncoder encoder: JSONEncoder, _ object:T) {
+        do {
+            let data = try encoder.encode(object)
+            if FileManager.default.fileExists(atPath: url.path) {
+                if let fileUpdater = try? FileHandle(forUpdating: url) {
+                    fileUpdater.seekToEndOfFile()
+                    fileUpdater.write(data)
+                    fileUpdater.write("\n".data(using: .utf8)!)
+                    fileUpdater.closeFile()
+                }
+            } else {
+                FileManager.default.createFile(atPath: url.path, contents: data, attributes: nil)
+                if let fileUpdater = try? FileHandle(forUpdating: url) {
+                    fileUpdater.seekToEndOfFile()
+                    fileUpdater.write("\n".data(using: .utf8)!)
+                    fileUpdater.closeFile()
+                }
+            }
+
+        } catch{
+            fatalError(error.localizedDescription)
+        }
+    }
+    
+    static func removeOld (_ fileName:String) {
+        let url = getDocumentDirectory().appendingPathComponent(fileName, isDirectory: false)
+        
+        if FileManager.default.fileExists(atPath: url.path) {
+            do {
+                try FileManager.default.removeItem(at: url)
+            }catch{
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
+    
+    static func upload () {
+        let db = Firestore.firestore()
+        
+        
+//        db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid": result!.user.uid, "sync":false]) { (error) in
+//            
+//            if error != nil {
+//                // Show error message
+//                self.showError("Error saving user data")
+//            }
+//        }
+    }
 }

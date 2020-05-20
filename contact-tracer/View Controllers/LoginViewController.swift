@@ -24,8 +24,10 @@ class LoginViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         setUpElements()
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
-    
     
     func setUpElements() {
         
@@ -33,9 +35,9 @@ class LoginViewController: UIViewController {
         errorLabel.alpha = 0
         
         // Style the elements
-        Utilities.styleTextField(emailTextField)
-        Utilities.styleTextField(passwordTextField)
-        Utilities.styleFilledButton(loginButton)
+        Utilities.styleTextField(self.traitCollection, emailTextField)
+        Utilities.styleTextField(self.traitCollection, passwordTextField)
+        Utilities.styleFilledButton(self.traitCollection, loginButton)
         
     }
     
@@ -74,6 +76,7 @@ class LoginViewController: UIViewController {
                     self.errorLabel.alpha = 1
                 }
                 else {
+                    Utilities.setSession(result!.user.uid)
                     self.transitionToHome()
                 }
             }
@@ -87,11 +90,17 @@ class LoginViewController: UIViewController {
     }
     
     func transitionToHome() {
+        let contactTableViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.contactTableViewController) as? ContactTableViewController
         
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
-        
-        view.window?.rootViewController = homeViewController
+        view.window?.rootViewController = contactTableViewController
         view.window?.makeKeyAndVisible()
         
+    }
+}
+
+extension LoginViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
