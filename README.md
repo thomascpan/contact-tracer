@@ -17,14 +17,28 @@ This repository covers the iOS App. You can view Analytics [here](https://github
 Contact Tracer App is an iOS app that automatically detect all the people a person comes into contact with throughout a given time period. Using Bluetooth signals, it detects and logs all nearby devices that have the app installed. The user then has the option of uploading their data for contact tracing purposses.
 
 ## Features
+
 - Signup and Authentication
 - Contact Logging
 - Sync
 
 ## Preview
-![Welcome](img/welcome.jpeg "Welcome Page")
-![Signup](img/signup.jpeg "Signup Page")
-![Home](img/home.jpeg "Home Page")
+
+!["Welcome Page"](img/welcome.jpeg)
+
+*Fig. 1: Contact Tracer Welcome Page: signup or login*
+
+!["Signup Page"](img/signup.jpeg)
+
+*Fig. 2: Signup information is encrypted and stored securely used solely for notifying individuals who have potentially been infected*
+
+!["Home Page"](img/home.jpeg)
+
+*Fig. 3: Contact Tracer Home Page shows a log of recent contacts*
+
+!["Home Page Sync"](img/home_sync.jpeg)
+
+*Fig. 4: Users control their own data and can sync/upload their data to the backend for contact tracing purposes*
 
 ## Misc.
 
